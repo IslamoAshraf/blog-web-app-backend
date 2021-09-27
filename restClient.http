@@ -1,0 +1,28 @@
+GET http://localhost:3000/users/ HTTP/1.1
+
+###
+POST http://localhost:3000/users/add HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Sherif",
+    "email":"Sherif@gmail.com",
+    "password":"654654316",
+    "age":2,
+    "location":"cairo"
+}
+
+###
+POST http://localhost:3000/users/update/61311d3b9c38b70b808ccbef HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Sara",
+    "email":"Sara@gmail.com",
+    "password":"654654316",
+    "age":888,
+    "location":"cairo"
+}
+
+###
+DELETE http://localhost:3000/users/delete/61314ae703a7dbb48eec768a HTTP/1.1
