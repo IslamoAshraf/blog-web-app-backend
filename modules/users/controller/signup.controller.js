@@ -1,14 +1,16 @@
 const User = require("../model/user.model");
 const bcrypt = require("bcrypt");
+const { StatusCodes } = require("http-status-codes");
 
 module.exports = async (req, res) => {
   try {
     const { username, email, password, phone, location } = req.body;
-    console.log(username, email, password, phone, location);
 
     const isExist = await User.findOne({ email });
     if (isExist) {
-      return res.json({ error: "user is already exist" });
+      return res
+        .status(StatusCodes.BAD_REQUEST)
+        .json({ error: "user is already exist" });
     }
 
     bcrypt.hash(password, 8, async (err, hash) => {
@@ -22,9 +24,11 @@ module.exports = async (req, res) => {
         phone,
         location,
       });
-      res.json({ message: "register successfully", user });
+      res
+        .status(StatusCodes.CREATED)
+        .json({ message: "register successfully", user });
     });
   } catch (error) {
-    res.json({ error });
+    res.status(StatusCodes.BAD_REQUEST).json({ error });
   }
 };

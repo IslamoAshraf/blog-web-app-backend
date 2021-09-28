@@ -2,13 +2,16 @@ const Joi = require("joi");
 
 module.exports = {
   addUserSchema: {
-    body: Joi.object().required().keys({
-      username: Joi.string().required(),
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
-      phone: Joi.number().required(),
-      location: Joi.string().required(),
-    }),
+    body: Joi.object()
+      .required()
+      .keys({
+        username: Joi.string().required(),
+        email: Joi.string().email().required(),
+        password: Joi.string().required(),
+        passwordC: Joi.string().required().valid(Joi.ref("password")),
+        phone: Joi.number().required(),
+        location: Joi.string().required(),
+      }),
   },
   singInSchema: {
     body: Joi.object().required().keys({
