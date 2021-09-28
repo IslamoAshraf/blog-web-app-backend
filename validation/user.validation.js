@@ -15,7 +15,7 @@ module.exports = {
   },
   singInSchema: {
     body: Joi.object().required().keys({
-      email: Joi.string().required().email(),
+      email: Joi.string().email().required(),
       password: Joi.string().required(),
     }),
   },
