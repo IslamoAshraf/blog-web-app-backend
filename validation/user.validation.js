@@ -25,7 +25,10 @@ module.exports = {
       id: Joi.string(),
     }),
     body: Joi.object().required().keys({
-      name: Joi.string().required(),
+      username: Joi.string(),
+      email: Joi.string().email(),
+      phone: Joi.number(),
+      location: Joi.string(),
     }),
   },
 };

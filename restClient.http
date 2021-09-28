@@ -1,17 +1,27 @@
 GET http://localhost:3000/users HTTP/1.1
-Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUzNGZiODEwNDM1ZjBiYzJhYWQ2MTciLCJyb2xlIjoidXNlciIsImlhdCI6MTYzMjg1Mzg3MiwiZXhwIjoxNjMyODgyNjcyfQ.7ANmje0Qt5DL9Apiuzvifzg7v8jyC0KwpiUf-xu0zAU
-###
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUzOThmZmViYWVkMzRkMjA0ZmJjZmQiLCJyb2xlIjoidXNlciIsImlhdCI6MTYzMjg2ODk5MSwiZXhwIjoxNjMyOTU1MzkxfQ.SFyLzmglldMWjVs-vd3BhsapY9qmTTt-zQlljFi1g-A
 
+###
 POST http://localhost:3000/user/signup/ HTTP/1.1
 content-type: application/json
 
 {
-    "username":"Ssherif",
-    "email":"mm@gmail.com",
-    "password":"65465sds455555555316",
-    "passwordC":"65465sds455555555316",
+    "username":"w",
+    "email":"w@gmail.com",
+    "password":"1",
+    "passwordC":"1",
     "phone":"254454",
     "location":"cairo"
+}
+
+###
+PATCH  http://localhost:3000/user/update/61539d2a6c338e67cdde7c69 HTTP/1.1
+content-type: application/json
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUzOWQyYTZjMzM4ZTY3Y2RkZTdjNjkiLCJyb2xlIjoidXNlciIsImlhdCI6MTYzMjg3MTQ4OSwiZXhwIjoxNjMyOTU3ODg5fQ.XdfWVTQG7tokB8D7RLXMhpqz5rw66G30l97UqL0FJy8
+
+{
+    "username":"Sssherif",
+    "email":"11@gmail.com"
 }
 
 ###
@@ -19,8 +29,8 @@ POST http://localhost:3000/user/signin HTTP/1.1
 content-type: application/json
 
 {
-    "email":"mm@gmail.com",
-    "password":"65465sds455555555316"
+    "email":"qq@gmail.com",
+    "password":"1"
 }
 
 ###
