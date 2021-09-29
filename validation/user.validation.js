@@ -13,6 +13,7 @@ module.exports = {
         location: Joi.string().required(),
       }),
   },
+
   singInSchema: {
     body: Joi.object().required().keys({
       email: Joi.string().email().required(),
@@ -30,5 +31,18 @@ module.exports = {
       phone: Joi.number(),
       location: Joi.string(),
     }),
+  },
+
+  updatePasswordSchema: {
+    params: Joi.object().required().keys({
+      id: Joi.string().required,
+    }),
+    body: Joi.object()
+      .required()
+      .keys({
+        oldpassword: Joi.string().required(),
+        newpassword: Joi.string().required(),
+        passwordC: Joi.string().required().valid(Joi.ref("newpassword")),
+      }),
   },
 };

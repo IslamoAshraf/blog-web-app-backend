@@ -4,11 +4,13 @@ const signupController = require("../controller/signup.controller");
 const signinController = require("../controller/signin.controller");
 const getUsersController = require("../controller/getUsers.controller");
 const updateUserController = require("../controller/updateuser.controller");
+const updatepasswordController = require("../controller/updatepassword.controller");
 
 const {
   addUserSchema,
   singInSchema,
   updateUserSchema,
+  updatePasswordSchema,
 } = require("../../../validation/user.validation");
 const requestValidation = require("../../../validation/vaildationFactoryFun");
 
@@ -30,4 +32,13 @@ router.patch(
   requestValidation(updateUserSchema),
   updateUserController
 );
+
+router.patch(
+  "/user/updatepassowrd/:id",
+  isAuthorized(["user"]),
+  requestValidation(updatePasswordSchema),
+  updatepasswordController
+);
+
+router.post("/user/deactivate/:id")
 module.exports = router;

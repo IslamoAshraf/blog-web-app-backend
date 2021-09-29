@@ -7,7 +7,7 @@ content-type: application/json
 
 {
     "username":"w",
-    "email":"w@gmail.com",
+    "email":"2@gmail.com",
     "password":"1",
     "passwordC":"1",
     "phone":"254454",
@@ -25,11 +25,22 @@ Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUzOWQyYT
 }
 
 ###
+PATCH  http://localhost:3000/user/updatepassowrd/6153ace15806daefe310a83e HTTP/1.1
+content-type: application/json
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUzYWNlMTU4MDZkYWVmZTMxMGE4M2UiLCJyb2xlIjoidXNlciIsImlhdCI6MTYzMjg3MzczOSwiZXhwIjoxNjMyOTYwMTM5fQ.nH_1jmbIjpzLw8WeA9hqlxceuK5rf9UKrA_ZlY1iL2A
+
+{
+    "oldpassword":"1",
+    "newpassword":"1dd",
+    "passwordC":"1dd"
+}
+
+###
 POST http://localhost:3000/user/signin HTTP/1.1
 content-type: application/json
 
 {
-    "email":"qq@gmail.com",
+    "email":"2@gmail.com",
     "password":"1"
 }
 
