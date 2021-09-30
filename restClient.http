@@ -40,9 +40,16 @@ POST http://localhost:3000/user/signin HTTP/1.1
 content-type: application/json
 
 {
-    "email":"2@gmail.com",
-    "password":"1"
+    "email":"1@gmail.com",
+    "password":""
 }
+
+###
+GET http://localhost:3000/user/deactivate/6153ace15806daefe310a83e HTTP/1.1
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUzYWNlMTU4MDZkYWVmZTMxMGE4M2UiLCJyb2xlIjoidXNlciIsImlhdCI6MTYzMjg3MzczOSwiZXhwIjoxNjMyOTYwMTM5fQ.nH_1jmbIjpzLw8WeA9hqlxceuK5rf9UKrA_ZlY1iL2A
+content-type: application/json
+
+
 
 ###
 DELETE http://localhost:3000/users/delete/61314ae703a7dbb48eec768a HTTP/1.1
