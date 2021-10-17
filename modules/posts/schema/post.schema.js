@@ -9,8 +9,13 @@ const postSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    type: { enum: ["ads", "post"], required: true },
-    blocked: { type: Boolean, required: true },
+    type: {
+      type: String,
+      enum: ["ads", "post"],
+      required: true,
+      default: "post",
+    },
+    blocked: { type: Boolean, required: true, default: false },
   },
   {
     timestamps: true,

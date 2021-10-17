@@ -1,0 +1,55 @@
+### Get all user
+GET http://localhost:3000/posts HTTP/1.1
+# Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUzYWNkYjU4MDZkYWVmZTMxMGE4M2IiLCJyb2xlIjoidXNlciIsImlhdCI6MTYzMzAyMzI4MywiZXhwIjoxNjMzMTA5NjgzfQ.ANbA1ICDEyyiXkmR4RjN22BXRdNW8Qot4yqVTX48QXE
+
+### Signup
+POST http://localhost:3000/user/signup/ HTTP/1.1
+content-type: application/json
+
+{
+    "username":"w",
+    "email":"2@gmail.com",
+    "password":"1",
+    "passwordC":"1",
+    "phone":"254454",
+    "location":"cairo"
+}
+
+### Sign in
+POST http://localhost:3000/user/signin HTTP/1.1
+content-type: application/json
+
+{
+    "email":"1@gmail.com",
+    "password":"1"
+}
+
+### Update user
+PATCH  http://localhost:3000/user/update/6153acdb5806daefe310a83b HTTP/1.1
+content-type: application/json
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUzYWNkYjU4MDZkYWVmZTMxMGE4M2IiLCJyb2xlIjoidXNlciIsImlhdCI6MTYzMzAyMzcxOSwiZXhwIjoxNjMzMTEwMTE5fQ.izdJRvF0PZxNpmkTiCHBBHb8SHgdCvt7Ll6FFc7yV8I
+
+{
+    "username":"Sssherif",
+    "email":"1@gmail.com"
+}
+
+### Update password
+PATCH  http://localhost:3000/user/updatepassowrd/6153acdb5806daefe310a83b HTTP/1.1
+content-type: application/json
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUzYWNkYjU4MDZkYWVmZTMxMGE4M2IiLCJyb2xlIjoidXNlciIsImlhdCI6MTYzMzAyMzcxOSwiZXhwIjoxNjMzMTEwMTE5fQ.izdJRvF0PZxNpmkTiCHBBHb8SHgdCvt7Ll6FFc7yV8I
+
+{
+    "oldpassword":"1",
+    "newpassword":"1",
+    "passwordC":"1"
+}
+
+### Deactive user
+GET http://localhost:3000/user/deactivate/6153acdb5806daefe310a83b HTTP/1.1
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTUzYWNkYjU4MDZkYWVmZTMxMGE4M2IiLCJyb2xlIjoidXNlciIsImlhdCI6MTYzMzAyMzcxOSwiZXhwIjoxNjMzMTEwMTE5fQ.izdJRvF0PZxNpmkTiCHBBHb8SHgdCvt7Ll6FFc7yV8I
+
+
+
+###
+DELETE http://localhost:3000/users/delete/61314ae703a7dbb48eec768a HTTP/1.1
