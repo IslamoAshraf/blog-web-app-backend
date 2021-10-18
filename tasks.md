@@ -1,4 +1,4 @@
-# 1-	Users(user , superAdmin ,Admin)
+# 1-Users(user , superAdmin ,Admin)
 - Signup ( username , email , password , cPassword , phone , location ,  role default: user) validation joi
 Hash password and encrypt phone number
 - Signin  (email ,password) Joi validation (compare password , generate token)
@@ -15,7 +15,7 @@ Hash password and encrypt phone number
 - user can deactivate his account
 - view advertising
 
-# 3-	Admin(inserted manual first time in DB with role superAdmin)
+# 3-Admin(inserted manual first time in DB with role superAdmin)
 - Get users List
 - Add other admin with role admin ( super Admin only)
 - Get admin list  (superAdmin only)

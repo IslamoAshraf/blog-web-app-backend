@@ -2,7 +2,6 @@ const User = require("../model/user.model");
 const bcrypt = require("bcrypt");
 const { StatusCodes } = require("http-status-codes");
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
 
 module.exports = async (req, res) => {
   const { email, password } = req.body;
@@ -24,16 +23,18 @@ module.exports = async (req, res) => {
     }
 
     if (isMatchedPassword) {
-      const token = jwt.sign({ _id: user._id, role: user.role }, "warmcold", {
-        expiresIn: "24h",
+      const token = jwt.sign(
+        { _id: user._id, role: user.role },
+        process.env.TOKEN_KEY,
+        {
+          expiresIn: process.env.TOKEN_EXPIRY,
+        }
+      );
+      res.status(StatusCodes.OK).json({
+        message: "success",
+        token,
+        data: { _id: user._id, email: user.email, role: user.role },
       });
-      if (token) {
-        res.status(StatusCodes.OK).json({
-          message: "success",
-          token,
-          data: { _id: user._id, email: user.email, role: user.role },
-        });
-      }
     }
   } catch (error) {
     return res.status(StatusCodes.BAD_REQUEST).json({ error });
