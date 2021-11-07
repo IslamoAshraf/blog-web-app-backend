@@ -8,10 +8,11 @@ module.exports = {
     }),
   },
 
-  singInSchema: {
+  editPost: {
     body: Joi.object().required().keys({
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
+      id:Joi.string().required(),
+      title: Joi.string().required(),
+      desc: Joi.string().required(),
     }),
   },
 
