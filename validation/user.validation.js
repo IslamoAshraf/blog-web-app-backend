@@ -23,7 +23,7 @@ module.exports = {
 
   updateUserSchema: {
     params: Joi.object().required().keys({
-      id: Joi.string().required(),
+      id: Joi.number().required().error(new Error("djsm")),
     }),
     body: Joi.object().required().keys({
       username: Joi.string().required(),
