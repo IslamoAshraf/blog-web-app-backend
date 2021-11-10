@@ -1,15 +1,22 @@
 const router = require("express").Router();
+const validator = require("express-joi-validation").createValidator({});
+
 //Post controller
 const getPostsController = require("../controller/getposts.controller");
 
 //User schema joe validation middleware
 const requestValidation = require("../../../validation/vaildationFactoryFun");
-const { addPost, editPost } = require("../../../validation/post.validation");
+const {
+  addPost,
+  editPost,
+  ProfilePost,
+} = require("../../../validation/post.validation");
 
 //Authorization middleware
 const isAuthorized = require("../../../authorization/isAuthorized");
 const addpostsController = require("../controller/addposts.controller");
 const updatePost = require("../controller/updatepost.controller");
+const getProfilePost = require("../controller/getprofilepost.controller");
 
 //Get all posts
 router.get("/posts", isAuthorized(["user"]), getPostsController);
@@ -30,8 +37,7 @@ router.patch(
   updatePost
 );
 
-
-//get profile post 
-router.get("/posts/:userid",)
+//get profile posts
+router.get("/posts/:userid", validator.params(ProfilePost), getProfilePost);
 
 module.exports = router;

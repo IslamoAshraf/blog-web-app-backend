@@ -28,7 +28,6 @@ const updatePost = async (req, res) => {
       message: "success",
       updatedPost,
     });
-    res.status(StatusCodes.BAD_REQUEST).json({ message: "error" });
   } catch (error) {
     res.status(StatusCodes.BAD_REQUEST).json({ message: "post not found" });
   }
