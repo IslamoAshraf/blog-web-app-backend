@@ -13,11 +13,13 @@ const {
   singInSchema,
   updateUserSchema,
   updatePasswordSchema,
+  deleteUserSchema,
 } = require("../../../validation/user.validation");
 const requestValidation = require("../../../validation/vaildationFactoryFun");
 
 //Authorization middleware
 const isAuthorized = require("../../../authorization/isAuthorized");
+const deleteUser = require("../controller/deleteuser.controller");
 
 //Get all users route
 router.get("/users", isAuthorized(["user"]), getUsersController);
@@ -50,5 +52,13 @@ router.patch(
 
 //Deactivate user route
 router.get("/user/deactivate/:id", isAuthorized(["user"]), deactivateUser);
+
+//Delete user route
+router.delete(
+  "/user/delete/:id",
+  requestValidation(deleteUserSchema),
+  isAuthorized(["user"]),
+  deleteUser
+);
 
 module.exports = router;

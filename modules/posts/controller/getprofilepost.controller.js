@@ -1,4 +1,4 @@
-const Post = require("../model/post.model");
+const Post = require("../model/post.model")
 const { StatusCodes } = require("http-status-codes");
 
 const getProfilePost = async (req, res) => {

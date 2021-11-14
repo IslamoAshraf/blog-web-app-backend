@@ -17,6 +17,7 @@ const isAuthorized = require("../../../authorization/isAuthorized");
 const addpostsController = require("../controller/addposts.controller");
 const updatePost = require("../controller/updatepost.controller");
 const getProfilePost = require("../controller/getprofilepost.controller");
+const reportPost = require("../../users/controller/reportedPost.controller");
 
 //Get all posts
 router.get("/posts", isAuthorized(["user"]), getPostsController);
@@ -38,6 +39,9 @@ router.patch(
 );
 
 //get profile posts
-router.get("/posts/:userid", validator.params(ProfilePost), getProfilePost);
+router.get("/posts/:userid", requestValidation(ProfilePost), getProfilePost);
+
+//report post
+router.post("/posts/report", isAuthorized(["user"]), reportPost);
 
 module.exports = router;

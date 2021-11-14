@@ -16,7 +16,11 @@ module.exports = {
     }),
   },
 
-  ProfilePost: Joi.object({
-    userid: Joi.number().integer().required(),
-  }),
+  ProfilePost: {
+    params: Joi.object()
+      .required()
+      .keys({
+        userid: Joi.string().required().error(new Error("no user id")),
+      }),
+  },
 };

@@ -16,6 +16,7 @@ const postSchema = new mongoose.Schema(
       default: "post",
     },
     blocked: { type: Boolean, required: true, default: false },
+    reportedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   {
     timestamps: true,

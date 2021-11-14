@@ -1,4 +1,4 @@
-const Post = require("../model/post.model");
+const Post = require("../model/post.model").default;
 const { StatusCodes } = require("http-status-codes");
 
 module.exports = async (req, res) => {

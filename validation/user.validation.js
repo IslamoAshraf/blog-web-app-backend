@@ -22,9 +22,11 @@ module.exports = {
   },
 
   updateUserSchema: {
-    params: Joi.object().required().keys({
-      id: Joi.number().required().error(new Error("djsm")),
-    }),
+    params: Joi.object()
+      .required()
+      .keys({
+        id: Joi.number().required().error(new Error("djsm")),
+      }),
     body: Joi.object().required().keys({
       username: Joi.string().required(),
       email: Joi.string().email(),
@@ -35,7 +37,7 @@ module.exports = {
 
   updatePasswordSchema: {
     params: Joi.object().required().keys({
-      id: Joi.string().required,
+      id: Joi.string().required(),
     }),
     body: Joi.object()
       .required()
@@ -44,5 +46,11 @@ module.exports = {
         newpassword: Joi.string().required(),
         passwordC: Joi.string().required().valid(Joi.ref("newpassword")),
       }),
+  },
+  
+  deleteUserSchema: {
+    params: Joi.object().required().keys({
+      id: Joi.string().required().error(new Error("D")),
+    }),
   },
 };
