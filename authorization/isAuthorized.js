@@ -1,6 +1,6 @@
 const { StatusCodes } = require("http-status-codes");
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
+// require("dotenv").config();
 
 module.exports = (roles) => {
   return async (req, res, next) => {
@@ -10,7 +10,7 @@ module.exports = (roles) => {
       }
       if (req.headers.authorization) {
         const token = req.headers.authorization.split(" ")[1];
-        const decoded = await jwt.verify(token, "warmcold");
+        const decoded = await jwt.verify(token, process.env.TOKEN_KEY);
         req.user = decoded;
         const isAllowed = roles.includes(decoded.role);
         if (isAllowed) {

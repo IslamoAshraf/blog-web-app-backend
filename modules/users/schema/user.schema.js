@@ -9,6 +9,7 @@ const userSchema = new Schema(
     role: { type: String, default: "user" },
     deactivated: { type: Boolean, default: false },
     blocked: { type: Boolean, default: false },
+    isVerified: { type: Boolean, default: false },
   },
   {
     timestamps: true,

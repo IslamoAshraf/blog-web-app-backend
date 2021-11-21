@@ -20,6 +20,7 @@ const requestValidation = require("../../../validation/vaildationFactoryFun");
 //Authorization middleware
 const isAuthorized = require("../../../authorization/isAuthorized");
 const deleteUser = require("../controller/deleteuser.controller");
+const verifyUser = require("../controller/verifyuser.controller");
 
 //Get all users route
 router.get("/users", isAuthorized(["user"]), getUsersController);
@@ -33,6 +34,9 @@ router.post(
 
 //Signin user route
 router.post("/user/signin/", requestValidation(singInSchema), signinController);
+
+//Verify user route
+router.get("/verify/:token", verifyUser);
 
 //Update user route
 router.patch(
