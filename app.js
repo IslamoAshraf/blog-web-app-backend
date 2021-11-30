@@ -8,11 +8,13 @@ const app = express();
 const port = process.env.DB_PORT;
 //seed
 // seed()
+
 connection();
 app.use(express.json());
 app.use(userRouter);
 app.use(postRouter);
 
 app.get("/", (req, res) => res.send("Hello World!"));
-
+const hh = true && false
+console.log(hh);
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
